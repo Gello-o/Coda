@@ -113,3 +113,25 @@ empty_queue_exception ;
 tipo generico passato per parametro. Ritorna true se viene trovato, altrimenti false;
  transformif: funzione globale generica che permette la modifica degli elementi di una
 coda, con un operatore F, che soddisfano un certo predicato P.
+
+```
+E’ stato inoltre fatto l’overload dell’operatore di ostream per permettere la stampa dei valori della
+coda dal più recentemente inserito al meno recente.
+
+## Iteratori
+
+È stato implementato un iteratore di lettura e scrittura di tipo forward. La scelta implementativa
+del tipo di iteratore è stata fatta in considerazione della struttura dati proposta da progettare. Si
+suppone che l’accesso ad una coda parta dalla testa, quindi verrà usato il puntatore _head per
+iterare la struttura. Il puntatore _tail viene usato convenzionalmente per garantire che le
+operazioni di inserimento e cancellazione (come quelle di get e set dell’ultimo elemento) vengano
+eseguite in tempo costante. L’iterazione quindi deve essere unidirezionale.
+
+## Main
+
+Nel file main.cpp vengono testati tutti i metodi della classe coda. È stato fatto uso sia di assert sia
+chiamate a ogni metodo implementato. E’ stato deciso di fare la maggior parte di test, per
+semplicità, su una coda di dati di tipo int, ma sono anche state testate code di tipo std::string e
+code di tipo point per assicurarsi la regolarità della libreria. Sono stati creati vari metodi
+all’interno della classe per distribuire opportunamente il testing della libreria coda.h.
+
